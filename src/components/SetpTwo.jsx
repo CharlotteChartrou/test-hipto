@@ -37,7 +37,7 @@ const StepTwo = ({
   }, [zipCode]);
 
   /*   console.log(data); */
-
+  console.log(number);
   return (
     <>
       {isLoading ? (
@@ -48,6 +48,9 @@ const StepTwo = ({
           <form
             onSubmit={async (e) => {
               e.preventDefault();
+
+              setNumber("+33" + number.slice(1));
+              console.log(number);
 
               if (name === "") {
                 alert("veuillez renseigner votre nom");
@@ -111,7 +114,7 @@ const StepTwo = ({
               <CustomInput
                 label="number"
                 title="Téléphone : "
-                type="number"
+                type="tel"
                 state={number}
                 placeholder="0610123322"
                 setState={setNumber}
