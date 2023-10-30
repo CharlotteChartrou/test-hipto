@@ -64,18 +64,19 @@ const StepTwo = ({
               if (zipCode.length !== 5) {
                 alert("Veuillez renseigner un code postal valide");
               } else {
-                /*    const formData = new FormData();
+                const formData = new FormData();
                 formData.append("type_modele", carToTry);
                 formData.append("achat_ou_leasing", interestedBy);
                 formData.append("vehicule_actuel", currentCar);
                 formData.append("nom", name);
                 formData.append("prenom", firstName);
                 formData.append("ville", city);
-                formData.append("telephone", number); */
+                formData.append("telephone", number);
                 const mail = "charlottechartrou@gmail.com";
                 const response = await axios.post(
                   `https://hooks.zapier.com/hooks/catch/6844401/3sjq5ou/?em=${mail}`,
-                  {
+                  formData
+                  /*                   {
                     data: {
                       type_modele: carToTry,
                       achat_ou_leasing: interestedBy,
@@ -85,7 +86,7 @@ const StepTwo = ({
                       ville: city,
                       telephone: number,
                     },
-                  }
+                  } */
                 );
 
                 if (response.data.status === "success") {
